@@ -1,0 +1,42 @@
+//Sieve of Eratosthenes
+//if we declare inside the main function it take int a[]=10^6 and bool a[]=10^7
+//if we declare outside the main function  i.e is globally it take int a[]=10^7 and bool a[]=10^8
+//it takes n log(log n) complexity;
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int N=1000000;
+bool seive[1000001];
+void createSeive()
+{
+    for(int i=2;i<=N;i++){
+        seive[i]=true;
+    }
+    for(int i=2;i*i<=N;i++)
+    {
+        if(seive[i]==true){
+            for(int j=i*i;j<=N;j+=i){
+                seive[j]=false;
+            }
+        }
+    }
+    
+    
+}
+int 
+int main() {
+	createSeive();
+	int q;
+	cin>>q;
+	while(q--){
+	    int n;
+	    cin>>n;
+	    if(seive[n]==true){
+	        cout<<"It is Prime"<<endl;
+	    }
+	    else{
+	        cout<<"Its Not Prime"<<endl;
+	    }
+	}
+}
